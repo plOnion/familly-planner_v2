@@ -6,8 +6,14 @@ let day = date.getDay();
 let dayNumb = date.getDate();
 let month = date.getMonth();
 
-// ************ ACTUAL MONTH
 
+// ******* number of days in actual month
+const daysInMonth = new Date(date.getFullYear(), date.getMonth()+1, 0).getDate();
+
+// *****************first day of the month
+let firstMonthDay = (new Date(date.getFullYear(), date.getMonth(), 1)).getDay();
+
+// ************ ACTUAL MONTH
 const actualMonth = () =>{
     monthHeader.forEach(item =>{
         item.innerText = `Mamy miesiąc: ${months[month].toUpperCase()}`;
@@ -53,3 +59,11 @@ members.forEach((item) =>{
     })
     
 })
+
+// ****************
+const daysTable = [...document.querySelectorAll("#month .day")];
+let number = 1;
+for (let i=firstMonthDay-1; i<daysInMonth+firstMonthDay-1; i++){
+    daysTable[i].dataset.number = number++;
+    daysTable[day-1].classList.add("today");
+}
