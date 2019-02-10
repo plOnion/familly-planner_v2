@@ -6,9 +6,24 @@ let day = date.getDay();
 let dayNumb = date.getDate();
 let month = date.getMonth();
 
-monthHeader.forEach(item =>{
-    item.innerText = `Mamy miesiąc: ${months[month].toUpperCase()}`;
-})
+// ************ ACTUAL MONTH
+
+const actualMonth = () =>{
+    monthHeader.forEach(item =>{
+        item.innerText = `Mamy miesiąc: ${months[month].toUpperCase()}`;
+    })
+}
+
+actualMonth();
+// ************* TODAY
+const today = () =>{
+    const weekDays = [...document.querySelectorAll(".week .day")];
+    if (day === 0) {day = 7}
+        weekDays[day-1].classList.add("today");
+}
+
+today();
+
 // ****************************** MODAL
 const dayTasks = [...document.querySelectorAll(".day__task")];
 const members = [...document.querySelectorAll(".member")];
