@@ -1,47 +1,40 @@
 const monthHeader = [...document.querySelectorAll(".header__month")];
+const date = new Date();
+const months = ["styczeń", "luty", "marzec", "kwiecień", "maj", "czerwiec", "lipiec", "sierpień", "wrzesień", "październik", "listopad", "grudzień"];
+const days = ["niedziela", "poniedziałek", "wtorek", "środa", "czwartek", "piątek", "sobota"];
+let day = date.getDay();
+let dayNumb = date.getDate();
+let month = date.getMonth();
 
 monthHeader.forEach(item =>{
-    let date = new Date();
-    let month = date.getMonth();
+    item.innerText = `Mamy miesiąc: ${months[month].toUpperCase()}`;
+})
+// ****************************** MODAL
+const dayTasks = [...document.querySelectorAll(".day__task")];
+const members = [...document.querySelectorAll(".member")];
+const modal = document.querySelector(".modal");
+const modalBtn = document.querySelector(".modal input[type=submit");
+const modalInput = document.querySelector(".modal input[name=newtask");
 
-    switch (month){
-        case 0:
-        month = "Styczeń";
-        break;
-        case 1:
-        month = "Luty";
-        break;
-        case 2:
-        month = "Marzec";
-        break;
-        case 3:
-        month = "Kwiecień";
-        break;
-        case 4:
-        month = "Maj";
-        break;
-        case 5:
-        month = "Czerwiec";
-        break;
-        case 6:
-        month = "Lipiec";
-        break;
-        case 7:
-        month = "Sierpień";
-        break;
-        case 8:
-        month = "Wrzesień";
-        break;
-        case 9:
-        month = "Październik";
-        break;
-        case 10:
-        month = "Listopad";
-        break;
-        case 11:
-        month = "Grudzień";
-        break;
+const newTask = () =>{
+    let active = document.querySelector(".active");
+        active.textContent += " " + modalInput.value;
+        closeModal();
+}
 
-    }
-    item.innerText = `Mamy miesiąc: ${month}`
+const closeModal = () =>{
+    modalInput.value = "";
+    modal.style.visibility = "hidden";
+}
+
+modalInput.addEventListener("change", newTask);
+modalBtn.addEventListener("click", closeModal);
+
+members.forEach((item) =>{
+    item.addEventListener("click", (e)=>{
+        e.target.classList.add("active");
+        e.preventDefault;
+        modal.style.visibility = "visible";
+    })
+    
 })
