@@ -74,3 +74,6 @@ for (let i=firstMonthDay-1; i<daysInMonth+firstMonthDay-1; i++){
 }
 
 // ********************kopiowanie zdarzeń
+console.log(document.querySelector(".today"));
+const todayTasks = document.querySelector(".today .day__task").innerHTML;
+[...document.querySelectorAll(".today")][1].innerHTML +=todayTasks;
