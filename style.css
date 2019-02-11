@@ -34,8 +34,43 @@ aside{
 	border: 1px solid black;
 }
 
+.xxx{
+	height: 1px;
+	border: 1px solid black;
+	transform: rotate(45deg);
+}
+
+.mum{
+	background: green;
+}
+
+.dad{
+	background: blue;
+}
+
+.son{
+	background: red;
+}
+
+.rossie{
+	background: #ff008c;
+}
+
+.all{
+	background: aquamarine;
+}
+
 .today{
 	border: 3px solid rgb(66, 196, 6);
+}
+
+.square{
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	border: 1px solid black;
 }
 
 .modal{
@@ -49,16 +84,31 @@ visibility: hidden;
 
 .modal input{
 	position: relative;
-	top: 50%;
+	top: 50vh;
 	margin: auto;
 	padding: 10px;
 	/* background: black; */
 	width: 60%;
 }
 
+.btn{
+	position: relative;
+	/* top: 50%; */
+	margin: auto;
+	padding: 10px;
+	/* background: black; */
+	width: 60%;
+}
+
+.btn input{
+	width: 40%;
+}
+
 .day{
 	/* padding: 5px; */
 	width: 14.28%;
+	min-height: 75px;
+	position: relative;
 }
 
 .day__header{
