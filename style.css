@@ -62,6 +62,7 @@ aside{
 
 .today{
 	border: 3px solid rgb(66, 196, 6);
+	top:-3px;
 }
 
 .square{
@@ -82,13 +83,21 @@ background: rgba(0, 0, 0, 0.7);
 visibility: hidden;
 }
 
-.modal input{
+.modal input, .modal select{
 	position: relative;
 	top: 50vh;
 	margin: auto;
 	padding: 10px;
 	/* background: black; */
+	/* width: 60%; */
+}
+
+.modal input{
 	width: 60%;
+}
+
+.modal select{
+	width: 20%;
 }
 
 .btn{

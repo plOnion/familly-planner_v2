@@ -58,6 +58,7 @@ const closeModal = () =>{
     modal.style.visibility = "hidden";
     let active = document.querySelector(".active");
         active.classList.remove("active");
+        updatePlaner();
 }
 
 modalInput.addEventListener("change", newTask);
@@ -76,17 +77,45 @@ members.forEach((item) =>{
 let number = 1;
 for (let i=firstMonthDay-1; i<daysInMonth+firstMonthDay-1; i++){
     daysTable[i].dataset.number = number++;
-    daysTable[i].innerHTML = `XXX<div class="square">${daysTable[i].dataset.number}<div>`;
+    daysTable[i].innerHTML = `<div class="square">${daysTable[i].dataset.number}<div>`;
     daysTable[i].classList.contains("square") ? daysTable[i].innerHTML = `<div class='xxx'>z</div>` : number;
 }
 
 // ********************kopiowanie zdarzeń
-console.log(document.querySelector(".today"));
 const todayTasks = document.querySelector(".today .day__task").innerHTML;
-[...document.querySelectorAll(".today")][1].innerHTML +=todayTasks;
+const weekTask = [...document.querySelectorAll(".day__task")];
+// const xxxxx = document.querySelector(".day__task");
+// [...document.querySelectorAll(".today")][1].innerHTML +=todayTasks;
 
 let actualWeek = ([...document.querySelectorAll(".today")][1].dataset.row);
 let actualWeekRow = [...document.querySelectorAll('#month [data-row="'+actualWeek+'"]')];
 
-console.log(actualWeek);
-console.log(actualWeekRow);
+// console.log(daysTable);
+// console.log(actualWeekRow);
+// console.log(weekTask);
+// console.log(actualWeek);
+
+const updatePlaner = () =>{ 
+    actualWeekRow.forEach((item, index) =>{
+    item.innerHTML = weekTask[index].innerHTML;
+})
+}
+
+updatePlaner();
+
+// // const weekCreation = () =>{
+//     // number = 1;
+//     // let weeks = [];
+//     // for (let i=0; i<52; i++){
+//     //     [week+i]= [];
+//     // }
+//     let weeks = [];
+//     for (var i = 0; i < 6; ++i) {
+//     weeks[i] = [];
+// }
+
+// weeks[3] = weekTask;
+// // console.log(weeks[actualWeek]);
+// // }
+
+
