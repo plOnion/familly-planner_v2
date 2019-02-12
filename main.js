@@ -1,5 +1,12 @@
 const monthHeader = [...document.querySelectorAll(".header__month")];
 const daysTable = [...document.querySelectorAll("#month .day")];
+const firstRow = [...document.querySelectorAll('#month [data-row="first"]')];
+const secondRow = [...document.querySelectorAll('#month [data-row="second"]')];
+const thirdRow = [...document.querySelectorAll('#month [data-row="third"]')];
+const fourthRow = [...document.querySelectorAll('#month [data-row="fourth"]')];
+const fifthRow = [...document.querySelectorAll('#month [data-row="fifth"]')];
+const sixthRow = [...document.querySelectorAll('#month [data-row="sixth"]')];
+
 const date = new Date();
 const months = ["styczeń", "luty", "marzec", "kwiecień", "maj", "czerwiec", "lipiec", "sierpień", "wrzesień", "październik", "listopad", "grudzień"];
 const days = ["niedziela", "poniedziałek", "wtorek", "środa", "czwartek", "piątek", "sobota"];
@@ -37,8 +44,8 @@ today();
 
 const members = [...document.querySelectorAll(".member")];
 const modal = document.querySelector(".modal");
-const modalClose = document.querySelector(".modal input[type=reset");
-const modalInput = document.querySelector(".modal input[name=newtask");
+const modalClose = document.querySelector(".modal input[type=reset]");
+const modalInput = document.querySelector(".modal input[name=newtask]");
 
 const newTask = () =>{
     let active = document.querySelector(".active");
@@ -64,7 +71,7 @@ members.forEach((item) =>{
     })
 })
 
-// ****************
+// ****************numerowanie dni miesiaca
 
 let number = 1;
 for (let i=firstMonthDay-1; i<daysInMonth+firstMonthDay-1; i++){
@@ -77,3 +84,9 @@ for (let i=firstMonthDay-1; i<daysInMonth+firstMonthDay-1; i++){
 console.log(document.querySelector(".today"));
 const todayTasks = document.querySelector(".today .day__task").innerHTML;
 [...document.querySelectorAll(".today")][1].innerHTML +=todayTasks;
+
+let actualWeek = ([...document.querySelectorAll(".today")][1].dataset.row);
+let actualWeekRow = [...document.querySelectorAll('#month [data-row="'+actualWeek+'"]')];
+
+console.log(actualWeek);
+console.log(actualWeekRow);
